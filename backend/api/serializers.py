@@ -10,7 +10,7 @@ class TodoSerializer(serializers.ModelSerializer):
         fields  = "__all__"
 
 class UserSerializer(serializers.ModelSerializer):
-    todoList = serializers.PrimaryKeyRelatedField(many=True, queryset=Todo.objects.all())
+    todoList = TodoSerializer(many=True , read_only= True)
     class Meta:
         model = User
         fields = ["username", "password", "todoList"]
