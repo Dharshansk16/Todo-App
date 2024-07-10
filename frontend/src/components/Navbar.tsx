@@ -5,7 +5,7 @@ import SearchBar from "./navbar/SearchBar";
 export default function Navbar() {
   return (
     <div>
-      <div className="navbar bg-base-100 navbarFont ">
+      <div className="navbar bg-base-100 navbarFont">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -43,7 +43,10 @@ export default function Navbar() {
         </div>
         <div className="mr-10">
           <button className="px-4 py-1 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 hover:bg-base-200 ">
-            Login
+            <p>Login</p>
+          </button>
+          <button className="px-4 py-1 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 hover:bg-base-200 ">
+            <p>Register</p>
           </button>
         </div>
       </div>
