@@ -42,10 +42,10 @@ export default function Navbar() {
           <SearchBar />
         </div>
         <div className="mr-10">
-          <button className="px-4 py-1 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 hover:bg-base-200 ">
+          <button className="px-4 py-1 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 hover:bg-zinc-600 mx-1 ">
             <p>Login</p>
           </button>
-          <button className="px-4 py-1 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 hover:bg-base-200 ">
+          <button className="px-4 py-1 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 hover:bg-zinc-600 mx-1">
             <p>Register</p>
           </button>
         </div>
