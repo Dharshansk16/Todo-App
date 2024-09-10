@@ -5,7 +5,7 @@ from rest_framework import viewsets
 from django.contrib.auth.models import User
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
+from rest_framework.permissions import IsAuthenticated
 # Create your views here.
 
 class TodoViewSet(viewsets.ModelViewSet):
@@ -24,3 +24,5 @@ class UserviewSet(viewsets.ModelViewSet):
     def current_user(self, request):
         serializer = self.get_serializer(request.user)
         return Response(serializer.data)
+
+

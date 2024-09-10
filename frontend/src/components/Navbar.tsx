@@ -1,6 +1,7 @@
 import React from "react";
 import NavbarItem from "./navbar/NavbarItem";
 import SearchBar from "./navbar/SearchBar";
+import Link from "next/link";
 
 export default function Navbar() {
   return (
@@ -43,7 +44,7 @@ export default function Navbar() {
         </div>
         <div className="mr-10">
           <button className="px-4 py-1 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 hover:bg-zinc-600 mx-1 ">
-            <p>Login</p>
+            <Link href="/login">Login</Link>
           </button>
           <button className="px-4 py-1 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 hover:bg-zinc-600 mx-1">
             <p>Register</p>
