@@ -3,12 +3,17 @@ import React, { useEffect, useState } from "react";
 import TextYellow from "./styles/TextYellow";
 import TodoItem from "./TodoItem";
 import { ACCESS_TOKEN } from "@/app/_constants/constants";
-import { access } from "fs";
+
+type TodoItemType = {
+  id: number;
+  task_name: string;
+  status: boolean;
+  created_on: string;
+};
 
 export default function TodoList() {
+  const [todoList, setTodoList] = useState<TodoItemType[] | []>([]);
   const apiUrl = "http://127.0.0.1:8000/api/todo/";
-
-  // const [todoList, setTodoList] = useState([]);
 
   useEffect(() => {
     handleFetch();
@@ -22,7 +27,10 @@ export default function TodoList() {
       },
     });
     const todoItems = await response.json();
-    console.log(todoItems);
+    if (todoItems.length > 0) {
+      setTodoList(todoItems);
+      console.log(todoItems);
+    }
   }
   return (
     <div className="container px-8 m-8">
@@ -36,7 +44,7 @@ export default function TodoList() {
         </h2>
       </div>
       <div>
-        <TodoItem task_name="random_name" status={true} created_on="10/2/24" />
+        <TodoItem todoItem={todoList} />
       </div>
     </div>
   );

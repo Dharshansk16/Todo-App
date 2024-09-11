@@ -1,17 +1,14 @@
 import { todo } from "node:test";
 import React from "react";
 
-interface TodoItemProps {
+type TodoItemProps = {
+  id: number;
   task_name: string;
   status: boolean;
   created_on: string;
-}
+};
 
-const TodoItem: React.FC<TodoItemProps> = ({
-  task_name,
-  status,
-  created_on,
-}) => {
+function TodoItem({ todoItem }: { todoItem: TodoItemProps[] }) {
   return (
     <div className="overflow-x-auto">
       <table className="table table-zebra">
@@ -25,16 +22,18 @@ const TodoItem: React.FC<TodoItemProps> = ({
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th>1</th>
-            <td>{task_name}</td>
-            <td>{status ? "Completed" : "Pending"}</td>
-            <td>{created_on}</td>
-            <td>Actions</td>
-          </tr>
+          {todoItem.map((item) => (
+            <tr key={item.id}>
+              <th>{item.id}</th>
+              <td>{item.task_name}</td>
+              <td>{item.status ? "Completed" : "Pending"}</td>
+              <td>{item.created_on}</td>
+              <td>Actions</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
   );
-};
+}
 export default TodoItem;

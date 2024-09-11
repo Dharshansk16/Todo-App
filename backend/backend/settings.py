@@ -26,14 +26,7 @@ SECRET_KEY = 'django-insecure-vjloq2j0gxd%8d%hv3zzqc2j7p&e6-!edzc)fqreq2*xw7-u@(
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-]
-from corsheaders.defaults import default_headers
-
-CORS_ALLOW_HEADERS = list(default_headers) + ['Authorization']
-CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
 
@@ -47,6 +40,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     "rest_framework_simplejwt.token_blacklist",
+    'rest_framework.authtoken',
     'api',
 ]
 

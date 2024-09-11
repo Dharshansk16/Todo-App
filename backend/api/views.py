@@ -9,10 +9,14 @@ from rest_framework.permissions import IsAuthenticated
 # Create your views here.
 
 class TodoViewSet(viewsets.ModelViewSet):
-    queryset = Todo.objects.all()
+
     serializer_class = TodoSerializer
     lookup_field= "slug"
     permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return Todo.objects.filter(user=self.request.user)
+    
 
 class UserviewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()

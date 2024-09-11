@@ -10,8 +10,6 @@ export default function Login() {
     const form = event.currentTarget;
     const formData = new FormData(form);
     const data = await handleLogin(formData);
-    console.log(data.access);
-    console.log(data.refresh);
     localStorage.setItem(ACCESS_TOKEN, data.access);
     localStorage.setItem(REFRESH_TOKEN, data.refresh);
   };
